@@ -1,15 +1,26 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Header from "./components/header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setSidebarOpen(true);
+  };
+
+  const handleCloseSidebar = () => {
+    setSidebarOpen(false);
+  };
 
   return (
-    <>
-      <Header />
-    </>
+    <div className="flex flex-col h-screen bg-blue-50">
+      <Header onMenuClick={handleMenuClick} />
+      <div className="flex flex-grow">
+        <Sidebar isOpen={isSidebarOpen} onClose={handleCloseSidebar} />
+      </div>
+    </div>
   );
 }
 
