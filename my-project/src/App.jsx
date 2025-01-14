@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex max-h-screen overflow-hidden">
       <Sidebar isOpen={isSidebarOpen} onClose={handleCloseSidebar} />
       <div className="flex flex-col flex-grow overflow-hidden">
         <Header onMenuClick={handleMenuClick} />

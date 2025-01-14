@@ -22,7 +22,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div> */}
 
       <motion.div
-        className={`fixed top-16 left-0 h-full w-2/3 bg-blue-700 text-white p-5 z-50 md:relative md:w-1/5 ${
+        className={`fixed top-16 left-0 h-screen w-2/3 bg-blue-700 text-white p-5 z-50 md:relative md:w-1/5 ${
           isOpen ? "block" : "hidden md:block"
         }`}
       >
