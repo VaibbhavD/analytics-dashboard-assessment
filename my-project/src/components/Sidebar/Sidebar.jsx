@@ -56,7 +56,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            Table View
+            <Link to={"/table"}> Table View</Link>
           </motion.li>
         </ul>
       </motion.div>

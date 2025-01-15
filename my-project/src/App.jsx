@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Overview from "./components/Overview/Overview.jsx";
 import Charts from "./components/Charts/index.jsx";
+import TableView from "./components/Table/TableView.jsx";
 
 // import TableView from "./components/TableView/TableView";
 import "./App.css";
@@ -43,10 +44,7 @@ function App() {
             <Route path="/" element={<Overview data={filteredData} />} />
             <Route path="/charts" element={<Charts data={filteredData} />} />
             <Route path="/Map" element={<MapContainer data={filteredData} />} />
-            {/* <Route
-                path="/table"
-                element={<TableView data={filteredData} />}
-              /> */}
+            <Route path="/table" element={<TableView data={filteredData} />} />
           </Routes>
         </div>
       </div>
