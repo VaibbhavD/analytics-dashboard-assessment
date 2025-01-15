@@ -9,7 +9,7 @@ The objective of this assessment is to analyze the provided Electric Vehicle (EV
 The Electric Vehicle Population dataset is available in the [Electric Vehicle Population Data (CSV)](./data-to-visualize/Electric_Vehicle_Population_Data.csv) within this repository, for more information about the dataset visit [kaggle dataset](https://www.kaggle.com/datasets/willianoliveiragibin/electric-vehicle-population).
 
 **Note:** We've reduced the dataset in the repository to keep the data size small in the frontend bundle.
-
+Deploy Link- https://analytics-dashboard-assessment-zeta.vercel.app/
 ## Tasks
 
 ### Dashboard Creation:
