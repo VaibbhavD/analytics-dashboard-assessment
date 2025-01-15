@@ -1,11 +1,11 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Header from "./components/Header/Header.jsx";
+import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import "./App.css";
 import { fetchExcelData } from "./Utils/fetchExcelData";
 import useDataFilter from "./Hooks/useDataFilter";
-import Loader from "./components/Loader/Loader";
+import Loader from "./components/Loader/Loader.jsx";
 
 // Lazy load components
 const Overview = lazy(() => import("./components/Overview/Overview"));
