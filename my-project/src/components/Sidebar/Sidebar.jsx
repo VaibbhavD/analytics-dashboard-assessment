@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div> */}
 
       <motion.div
-        className={`fixed top-12 left-0 h-screen w-2/3 bg-blue-700 text-white p-5 z-50 md:relative md:w-1/5 ${
+        className={`fixed top-12 left-0 h-screen w-2/3  bg-blue-700 text-white p-5 z-50 md:relative md:w-1/5 ${
           isOpen ? "block" : "hidden md:block"
         }`}
       >
@@ -33,30 +33,40 @@ const Sidebar = ({ isOpen, onClose }) => {
         >
           &times;
         </button>
-        <ul className="space-y-4">
+        <ul className="space-y-4 pt-4">
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            <Link to={"/"}>Overview</Link>
+            <Link to={"/"} onClick={onClose}>
+              Overview
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            <Link to={"/charts"}>Trends</Link>
+            <Link to={"/charts"} onClick={onClose}>
+              Trends
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            <Link to={"/Map"}> Location Insights</Link>
+            <Link to={"/Map"} onClick={onClose}>
+              {" "}
+              Location Insights
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            <Link to={"/table"}> Table View</Link>
+            <Link to={"/table"} onClick={onClose}>
+              {" "}
+              Table View
+            </Link>
           </motion.li>
         </ul>
       </motion.div>

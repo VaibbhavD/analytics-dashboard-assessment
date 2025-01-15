@@ -1,35 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, Suspense } from "react";
+import Loader from "../../components/Loader/Loader.jsx";
 
-const TableView = ({ data }) => {
+const TableView = React.memo(({ data }) => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [isLoading, setIsLoading] = useState(true);
+  const itemsPerPage = 10;
 
-  // Reset to the first page when search text changes
+  // Simulate data fetching with a delay for loader demonstration
   useEffect(() => {
-    setCurrentPage(1);
-  }, [searchText]);
+    const fetchData = async () => {
+      setIsLoading(true);
+      // Simulate data fetching delay
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    };
+    fetchData();
+  }, [data]);
+
+  // Memoized filtered data
+  const filteredData = useMemo(() => {
+    return data.filter((item) =>
+      ["Make", "Model", "Country"].some((key) =>
+        item[key]?.toString().toLowerCase().includes(searchText.toLowerCase())
+      )
+    );
+  }, [data, searchText]);
 
   // Pagination logic
-  const filteredData = data.filter((item) =>
-    ["Make", "Model", "Country"].some((key) =>
-      item[key]?.toString().toLowerCase().includes(searchText.toLowerCase())
-    )
-  );
-
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = useMemo(
+    () => filteredData.slice(indexOfFirstItem, indexOfLastItem),
+    [filteredData, indexOfFirstItem, indexOfLastItem]
+  );
 
-  const handleSearch = (event) => {
-    setSearchText(event.target.value); // Reset the search text
-  };
+  useEffect(() => {
+    setCurrentPage(1); // Reset to the first page when search text changes
+  }, [searchText]);
+
+  const handleSearch = (event) => setSearchText(event.target.value);
 
   const handlePageChange = (page) => {
     if (page >= 1 && page <= Math.ceil(filteredData.length / itemsPerPage)) {
-      setCurrentPage(page); // Update the current page
+      setCurrentPage(page);
     }
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="p-4 mt-10 bg-gray-50 min-h-screen">
@@ -114,6 +135,6 @@ const TableView = ({ data }) => {
       </div>
     </div>
   );
-};
+});
 
 export default TableView;
