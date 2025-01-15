@@ -4,10 +4,12 @@ import Header from "./components/header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Overview from "./components/Overview/Overview.jsx";
 import Charts from "./components/Charts/index.jsx";
+
 // import TableView from "./components/TableView/TableView";
 import "./App.css";
 import { fetchExcelData } from "./Utils/fetchExcelData";
 import useDataFilter from "./Hooks/useDataFilter";
+import MapContainer from "./components/Map/MapContainer.jsx";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -40,6 +42,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Overview data={filteredData} />} />
             <Route path="/charts" element={<Charts data={filteredData} />} />
+            <Route path="/Map" element={<MapContainer data={filteredData} />} />
             {/* <Route
                 path="/table"
                 element={<TableView data={filteredData} />}

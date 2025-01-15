@@ -50,7 +50,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            Location Insights
+            <Link to={"/Map"}> Location Insights</Link>
           </motion.li>
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
