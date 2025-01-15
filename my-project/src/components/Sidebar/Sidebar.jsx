@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ isOpen, onClose }) => {
   return (
@@ -22,7 +23,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div> */}
 
       <motion.div
-        className={`fixed top-16 left-0 h-screen w-2/3 bg-blue-700 text-white p-5 z-50 md:relative md:w-1/5 ${
+        className={`fixed top-12 left-0 h-screen w-2/3 bg-blue-700 text-white p-5 z-50 md:relative md:w-1/5 ${
           isOpen ? "block" : "hidden md:block"
         }`}
       >
@@ -37,13 +38,13 @@ const Sidebar = ({ isOpen, onClose }) => {
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            Overview
+            <Link to={"/"}>Overview</Link>
           </motion.li>
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
             className="cursor-pointer p-2 rounded"
           >
-            Trends
+            <Link to={"/charts"}>Trends</Link>
           </motion.li>
           <motion.li
             whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
