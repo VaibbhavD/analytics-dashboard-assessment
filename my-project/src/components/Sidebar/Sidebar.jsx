@@ -29,45 +29,45 @@ const Sidebar = ({ isOpen, onClose }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white text-2xl md:hidden"
+          className="absolute top-10 right-4 text-white text-2xl md:hidden"
         >
           &times;
         </button>
-        <ul className="space-y-4 pt-4">
-          <motion.li
-            whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
-            className="cursor-pointer p-2 rounded"
-          >
-            <Link to={"/"} onClick={onClose}>
+        <ul className="space-y-4 pt-8">
+          <Link to={"/"} onClick={onClose} className="pt-2">
+            <motion.li
+              whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
+              className="cursor-pointer p-2 rounded"
+            >
               Overview
-            </Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
-            className="cursor-pointer p-2 rounded"
-          >
-            <Link to={"/charts"} onClick={onClose}>
+            </motion.li>
+          </Link>
+          <Link to={"/charts"} className="pt-2" onClick={onClose}>
+            <motion.li
+              whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
+              className="cursor-pointer p-2 rounded"
+            >
               Trends
-            </Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
-            className="cursor-pointer p-2 rounded"
-          >
-            <Link to={"/Map"} onClick={onClose}>
+            </motion.li>
+          </Link>
+          <Link to={"/Map"} className="pt-2" onClick={onClose}>
+            <motion.li
+              whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
+              className="cursor-pointer p-2 rounded"
+            >
               {" "}
               Location Insights
-            </Link>
-          </motion.li>
-          <motion.li
-            whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
-            className="cursor-pointer p-2 rounded"
-          >
-            <Link to={"/table"} onClick={onClose}>
+            </motion.li>
+          </Link>
+          <Link to={"/table"} className="pt-2" onClick={onClose}>
+            <motion.li
+              whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
+              className="cursor-pointer p-2 rounded"
+            >
               {" "}
               Table View
-            </Link>
-          </motion.li>
+            </motion.li>
+          </Link>
         </ul>
       </motion.div>
     </>

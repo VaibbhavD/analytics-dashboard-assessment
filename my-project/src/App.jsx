@@ -44,7 +44,7 @@ function App() {
         <Header onMenuClick={handleMenuClick} />
 
         {/* Main Content */}
-        <div className="flex-grow overflow-auto p-4 mt-4">
+        <div className="flex-grow overflow-auto p-4 mt-20 lg:mt-8">
           {/* Suspense for lazy-loaded components */}
           <Suspense fallback={<Loader />}>
             <Routes>
